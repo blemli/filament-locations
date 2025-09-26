@@ -2,6 +2,7 @@
 
 namespace TomatoPHP\FilamentLocations\Pages;
 
+use BackedEnum;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;

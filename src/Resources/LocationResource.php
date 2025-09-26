@@ -2,6 +2,7 @@
 
 namespace TomatoPHP\FilamentLocations\Resources;
 
+use BackedEnum;
 use Filament\Forms;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Form;

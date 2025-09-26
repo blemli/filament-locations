@@ -4,7 +4,7 @@ namespace TomatoPHP\FilamentLocations\Resources;
 
 use BackedEnum;
 use Filament\Forms;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -28,9 +28,9 @@ class CountryResource extends Resource
         return trans('filament-locations::messages.country.title');
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->schema([
                 Forms\Components\Grid::make(['default' => 2])
                     ->schema([

@@ -5,7 +5,7 @@ namespace TomatoPHP\FilamentLocations\Resources;
 use BackedEnum;
 use Filament\Forms;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Filament\Forms\Get;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -30,9 +30,9 @@ class LocationResource extends Resource
         return trans('filament-locations::messages.location.title');
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->schema([
                 Select::make('country_id')
                     ->label(trans('filament-locations::messages.location.form.country_id'))

@@ -3,7 +3,7 @@
 namespace TomatoPHP\FilamentLocations\Resources\CountryResource\RelationManagers;
 
 use Filament\Forms;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -21,9 +21,9 @@ class CitiesRelationManager extends RelationManager
         return trans('filament-locations::messages.city.title');
     }
 
-    public function form(Form $form): Form
+    public function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->label(trans('filament-locations::messages.city.form.name'))

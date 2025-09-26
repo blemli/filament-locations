@@ -20,7 +20,7 @@ class LocationSettings extends SettingsPage
 {
     use UseShield;
 
-    protected static ?string $navigationIcon = 'heroicon-o-cog';
+    protected static BackedEnum|string|null $navigationIcon = 'heroicon-o-cog';
 
     protected static string $settings = LocationsSettings::class;
 

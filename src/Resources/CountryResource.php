@@ -15,7 +15,7 @@ class CountryResource extends Resource
 {
     protected static ?string $model = Country::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-flag';
+    protected static BackedEnum|string|null $navigationIcon = 'heroicon-o-flag';
 
     public static function getNavigationGroup(): ?string
     {

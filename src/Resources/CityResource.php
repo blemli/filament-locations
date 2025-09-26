@@ -14,7 +14,7 @@ class CityResource extends Resource
 {
     protected static ?string $model = City::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-map';
+    protected static BackedEnum|string|null $navigationIcon = 'heroicon-o-map';
 
     public static function getNavigationGroup(): ?string
     {

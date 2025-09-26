@@ -17,7 +17,7 @@ class LocationResource extends Resource
 {
     protected static ?string $model = Location::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-globe-americas';
+    protected static BackedEnum|string|null $navigationIcon = 'heroicon-o-globe-americas';
 
     public static function getNavigationGroup(): ?string
     {

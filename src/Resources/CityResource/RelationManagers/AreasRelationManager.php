@@ -7,6 +7,11 @@ use Filament\Schemas\Schema;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Actions\CreateAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
 use Illuminate\Database\Eloquent\Model;
 
 class AreasRelationManager extends RelationManager
@@ -62,19 +67,19 @@ class AreasRelationManager extends RelationManager
                     ->boolean(),
             ])
             ->headerActions([
-                Tables\Actions\CreateAction::make()
+                CreateAction::make()
                     ->label(trans('filament-locations::messages.areas.create')),
             ])
             ->filters([
 
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                EditAction::make(),
+                DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ]);
     }

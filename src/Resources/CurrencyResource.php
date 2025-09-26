@@ -8,6 +8,10 @@ use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Actions\EditAction;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
 use TomatoPHP\FilamentLocations\Models\Currency;
 use TomatoPHP\FilamentLocations\Resources\CurrencyResource\Pages;
 
@@ -90,12 +94,12 @@ class CurrencyResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make()->visible(config('filament-locations.driver') !== 'json'),
-                Tables\Actions\DeleteAction::make()->visible(config('filament-locations.driver') !== 'json'),
+                EditAction::make()->visible(config('filament-locations.driver') !== 'json'),
+                DeleteAction::make()->visible(config('filament-locations.driver') !== 'json'),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make()->visible(config('filament-locations.driver') !== 'json'),
+                BulkActionGroup::make([
+                    DeleteBulkAction::make()->visible(config('filament-locations.driver') !== 'json'),
                 ]),
             ]);
     }

@@ -10,6 +10,11 @@ use Filament\Forms\Get;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Actions\ViewAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
 use Illuminate\Database\Eloquent\Builder;
 use TomatoPHP\FilamentLocations\Models\Location;
 use TomatoPHP\FilamentLocations\Resources\LocationResource\Pages;
@@ -174,13 +179,13 @@ class LocationResource extends Resource
                     }),
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                ViewAction::make(),
+                EditAction::make(),
+                DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ]);
     }

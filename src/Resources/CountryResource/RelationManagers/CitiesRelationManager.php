@@ -7,6 +7,11 @@ use Filament\Schemas\Schema;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Actions\CreateAction;
+use Filament\Actions\Action;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
 use Illuminate\Database\Eloquent\Model;
 use TomatoPHP\FilamentLocations\Models\City;
 use TomatoPHP\FilamentLocations\Resources\CityResource\Pages\EditCity;
@@ -79,25 +84,25 @@ class CitiesRelationManager extends RelationManager
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->headerActions([
-                Tables\Actions\CreateAction::make(),
+                CreateAction::make(),
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\Action::make('view')
+                Action::make('view')
                     ->icon('heroicon-o-eye')
                     ->url(fn (City $record): string => ViewCity::getUrl(['record' => $record])),
-                Tables\Actions\Action::make('edit')
+                Action::make('edit')
                     ->visible(config('filament-locations.driver') !== 'json')
                     ->label(trans('filament-locations::messages.city.edit'))
                     ->icon('heroicon-o-pencil-square')
                     ->url(fn (City $record): string => EditCity::getUrl(['record' => $record])),
-                Tables\Actions\DeleteAction::make(),
+                DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ]);
     }

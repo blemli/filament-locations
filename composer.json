@@ -55,10 +55,10 @@
     },
     "require": {
         "php": "^8.1|^8.2",
+        "calebporzio/sushi": "*",
+        "filament/filament": "^4.0",
         "tomatophp/console-helpers": "^1.1",
-        "filament/filament": "^3.2|^4.0",
-        "tomatophp/filament-settings-hub": "^4.0.0",
-        "calebporzio/sushi": "*"
+        "tomatophp/filament-settings-hub": "^4.0.0"
     },
     "require-dev": {
         "laravel/pint": "^1.18",

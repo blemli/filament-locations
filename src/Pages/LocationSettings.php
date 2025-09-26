@@ -8,8 +8,9 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
-use Filament\Pages\Actions\Action;
+use Filament\Actions\Action;
 use Filament\Pages\SettingsPage;
+use Filament\Schemas\Schema;
 use TomatoPHP\FilamentLocations\Models\Country;
 use TomatoPHP\FilamentLocations\Models\Currency;
 use TomatoPHP\FilamentLocations\Models\Language;
@@ -56,9 +57,9 @@ class LocationSettings extends SettingsPage
         return trans('filament-locations::messages.settings.location.title');
     }
 
-    protected function getFormSchema(): array
+    public function form(Schema $schema): Schema
     {
-        return [
+        return $schema->schema([
             Grid::make(['default' => 1])->schema([
                 TextArea::make('site_address')
                     ->label(trans('filament-locations::messages.settings.location.form.site_address'))
@@ -94,7 +95,6 @@ class LocationSettings extends SettingsPage
                     ->label(trans('filament-locations::messages.settings.location.form.site_language'))
                     ->hint(config('filament-settings-hub.show_hint') ? 'setting("site_language")' : null),
             ]),
-
-        ];
+        ]);
     }
 }
